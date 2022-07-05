@@ -2,7 +2,7 @@
 
 ![Book Lover_Two Color (1)](https://user-images.githubusercontent.com/64716417/177235945-b6b47b21-5263-41ad-9ec6-7e1c39496996.svg)
 
-<h2>1. Sistema de Guardado de una Librería</h2>
+<h2>1_ Sistema de Guardado de una Librería</h2>
 
 El objetivo de este ejercicio es el desarrollo de un sistema de guardado de libros en JAVA
 utilizando una base de datos MySQL y JPA como framework de persistencia.
