@@ -16,24 +16,24 @@ public class AutorDAO extends DAO<Autor> {
         super.guardar(autor);
     }
 
+    @Override
+    public void editar(Autor autor) {
+        conectar();
+        super.editar(autor);
+        desconectar();
+    }
+
+    public void eliminar(Integer id) {
+        Autor autor = buscarPorId(id);
+        super.eliminar(autor);
+    }
+
     public Autor buscarPorNombre(String nombre) {
         conectar();
         Autor autor = (Autor) em.createQuery("SELECT a FROM autor a WHERE a.nombre LIKE :nombre")
                 .setParameter("nombre", nombre).getSingleResult();
         desconectar();
         return autor;
-    }
-
-    public void editar(Integer id) {
-        conectar();
-        Autor autor = buscarPorId(id);
-        super.editar(autor);
-        desconectar();
-    }
-
-    public void eliminar(String nombre) {
-        Autor autor = buscarPorNombre(nombre);
-        super.eliminar(autor);
     }
 
     public Autor buscarPorId(Integer id) {

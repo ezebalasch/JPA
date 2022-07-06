@@ -16,14 +16,6 @@ public class LibroDAO extends DAO<Libro> {
         super.guardar(libro);
     }
 
-    public Libro buscarPorISBN(String isbn) {
-        conectar();
-        Libro libro = (Libro) em.createQuery("SELECT l FROM libro l WHERE l.isbn LIKE :isbn")
-                .setParameter("isbn", isbn).getSingleResult();
-        desconectar();
-        return libro;
-    }
-
     public Libro buscarPorNombreAutor(String nombre) {
         conectar();
         Libro libro = (Libro) em.createQuery("SELECT l FROM libro a, IN(l.autor) m WHERE m.nombre LIKE :nombre")
@@ -40,15 +32,14 @@ public class LibroDAO extends DAO<Libro> {
         return libro;
     }
 
-    public void editar(Integer id) {
+    public void editar(Libro libro) {
         conectar();
-        Libro libro = buscarPorId(id);
         super.editar(libro);
         desconectar();
     }
 
-    public void eliminar(String nombre) {
-        Libro libro = buscarPorNombre(nombre);
+    public void eliminar(Long isbn) {
+        Libro libro = buscarPorIsbn(isbn);
         super.eliminar(libro);
     }
 
@@ -59,9 +50,9 @@ public class LibroDAO extends DAO<Libro> {
         return libro;
     }
 
-    public Libro buscarPorId(Integer id) {
+    public Libro buscarPorIsbn(Long isbn) {
         conectar();
-        Libro libro = em.find(Libro.class, id);
+        Libro libro = em.find(Libro.class, isbn);
         desconectar();
         return libro;
     }

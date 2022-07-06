@@ -44,7 +44,7 @@ public class DAO<T> {
         desconectar();
     }
     
-    protected void eliminar (T objeto){
+    protected void eliminar(T objeto){
         conectar();
         em.getTransaction().begin();
         em.remove(objeto);

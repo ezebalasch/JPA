@@ -16,23 +16,15 @@ public class EditorialDAO extends DAO<Editorial> {
         super.guardar(editorial);
     }
 
-    public Editorial buscarPorNombre(String nombre) {
+    @Override
+    public void editar(Editorial editorial) {
         conectar();
-        Editorial editorial = (Editorial) em.createQuery("SELECT e FROM editorial e WHERE e.nombre LIKE :nombre")
-                .setParameter("nombre", nombre).getSingleResult();
-        desconectar();
-        return editorial;
-    }
-
-    public void editar(Integer id) {
-        conectar();
-        Editorial editorial = buscarPorId(id);
         super.editar(editorial);
         desconectar();
     }
 
-    public void eliminar(String nombre) {
-        Editorial editorial = buscarPorNombre(nombre);
+    public void eliminar(Integer id) {
+        Editorial editorial = buscarPorId(id);
         super.eliminar(editorial);
     }
 
