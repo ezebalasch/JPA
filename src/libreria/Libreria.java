@@ -1,7 +1,6 @@
 /*
 // Curso Egg FullStack
  */
-
 package libreria;
 
 /**
@@ -9,8 +8,9 @@ package libreria;
  */
 public class Libreria {
 
+    public static void main(String[] args) throws Exception {
+        Principal principal = new Principal();
+        principal.ejecucion();
 
-    public static void main(String[] args) {
     }
-
 }

@@ -13,7 +13,7 @@ import javax.persistence.Persistence;
  * @param <T>
  */
 public class DAO<T> {
-    protected final EntityManagerFactory EMF = Persistence.createEntityManagerFactory("Biblioteca");
+    protected final EntityManagerFactory EMF = Persistence.createEntityManagerFactory("BibliotecaPU");
     protected EntityManager em = EMF.createEntityManager();
     
     protected void conectar(){

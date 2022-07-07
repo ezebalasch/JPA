@@ -16,8 +16,8 @@ public class AutorServicio {
     private LibroServicio libroServicio;
     private final AutorDAO DAO;
 
-    public AutorServicio(AutorDAO DAO) {
-        this.DAO = DAO;
+    public AutorServicio() {
+        this.DAO = new AutorDAO();
     }
 
     public void setServicios(EditorialServicio editorialServicio, LibroServicio libroServicio) {

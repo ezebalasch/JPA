@@ -5,8 +5,11 @@
         <group name="OBLIGATORIOS">
             <file>file:/C:/Users/User/Documents/NetBeansProjects/Proyecto%20JPA/Libreria/src/libreria/servicios/AutorServicio.java</file>
             <file>file:/C:/Users/User/Documents/NetBeansProjects/Proyecto%20JPA/Libreria/src/META-INF/persistence.xml</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/Proyecto%20JPA/Libreria/src/libreria/persistencia/AutorDAO.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/Proyecto%20JPA/Libreria/src/libreria/persistencia/DAO.java</file>
             <file>file:/C:/Users/User/Documents/NetBeansProjects/Proyecto%20JPA/Libreria/src/libreria/servicios/LibroServicio.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/Proyecto%20JPA/Libreria/src/libreria/servicios/EditorialServicio.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/Proyecto%20JPA/Libreria/src/libreria/persistencia/LibroDAO.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/Proyecto%20JPA/Libreria/src/libreria/entidades/Libro.java</file>
         </group>
     </open-files>
 </project-private>
