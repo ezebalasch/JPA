@@ -13,40 +13,44 @@ import javax.persistence.Persistence;
  * @param <T>
  */
 public class DAO<T> {
+
     protected final EntityManagerFactory EMF = Persistence.createEntityManagerFactory("BibliotecaPU");
     protected EntityManager em = EMF.createEntityManager();
-    
-    protected void conectar(){
+
+    protected void conectar() {
         if (!em.isOpen()) {
             em = EMF.createEntityManager();
         }
     }
-    
-    protected void desconectar(){
+
+    protected void desconectar() {
         if (em.isOpen()) {
             em.close();
         }
     }
-    
-    protected void guardar(T objeto){
+
+    protected void guardar(T objeto) {
         conectar();
         em.getTransaction().begin();
         em.persist(objeto);
         em.getTransaction().commit();
         desconectar();
     }
-    
-    protected void editar(T objeto){
+
+    protected void editar(T objeto) {
         conectar();
         em.getTransaction().begin();
         em.merge(objeto);
         em.getTransaction().commit();
         desconectar();
     }
-    
-    protected void eliminar(T objeto){
+
+    protected void eliminar(T objeto) {
         conectar();
         em.getTransaction().begin();
+        if (!em.contains(objeto)) {
+            objeto = em.merge(objeto);
+        }
         em.remove(objeto);
         em.getTransaction().commit();
         desconectar();

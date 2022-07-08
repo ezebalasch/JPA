@@ -142,9 +142,16 @@ public class Libro implements Serializable {
         return true;
     }
 
+
     @Override
     public String toString() {
-        return "libreria.entidades.Libro[ id=" + isbn + " ]";
+        return "Libro{" + "isbn=" + isbn + ", titulo=" 
+                + titulo + ", anio=" + anio + ", ejemplares="
+                + ejemplares + ", ejemplaresPrestados=" + ejemplaresPrestados +
+                ", ejemplaresRestantes=" + ejemplaresRestantes + ", alta=" +
+                alta + ", autor=" + autor + ", editorial=" + editorial + '}';
     }
+    
+
     
 }
