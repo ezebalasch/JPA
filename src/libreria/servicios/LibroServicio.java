@@ -3,6 +3,7 @@
  */
 package libreria.servicios;
 
+import java.util.List;
 import libreria.entidades.Autor;
 import libreria.entidades.Editorial;
 import libreria.entidades.Libro;
@@ -91,19 +92,28 @@ public class LibroServicio {
             return null;
         }
     }
-
-    public Libro busquedaAutor(Autor autor) {
+    
+    public Libro busquedaNombre(String nombre) {
         try {
-            return DAO.buscarPorNombreAutor(autor.getNombre());
+            return DAO.buscarPorNombre(nombre);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;
         }
     }
 
-    public Libro busquedaEditorial(Editorial editorial) {
+    public List<Libro> busquedaAutor(String autor) {
         try {
-            return DAO.buscarPorNombreEditorial(editorial.getNombre());
+            return DAO.buscarPorNombreAutor(autor);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
+
+    public List<Libro> busquedaEditorial(String editorial) {
+        try {
+            return DAO.buscarPorNombreEditorial(editorial);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return null;

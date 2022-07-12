@@ -3,6 +3,7 @@
  */
 package libreria.persistencia;
 
+import java.util.List;
 import libreria.entidades.Libro;
 
 /**
@@ -16,18 +17,18 @@ public class LibroDAO extends DAO<Libro> {
         super.guardar(libro);
     }
 
-    public Libro buscarPorNombreAutor(String nombre) {
+    public List<Libro> buscarPorNombreAutor(String nombre) {
         conectar();
-        Libro libro = (Libro) em.createQuery("SELECT l FROM libro a, IN(l.autor) m WHERE m.nombre LIKE :nombre")
-                .setParameter("nombre", nombre).getSingleResult();
+        List<Libro> libro = em.createQuery("SELECT l FROM Libro l WHERE l.autor.nombre LIKE :nombre")
+                .setParameter("nombre", nombre).getResultList();
         desconectar();
         return libro;
     }
 
-    public Libro buscarPorNombreEditorial(String nombre) {
+    public List<Libro> buscarPorNombreEditorial(String nombre) {
         conectar();
-        Libro libro = (Libro) em.createQuery("SELECT l FROM libro l, IN(a.editorial) m WHERE m.nombre LIKE :nombre")
-                .setParameter("nombre", nombre).getSingleResult();
+        List<Libro> libro = em.createQuery("SELECT l FROM Libro l WHERE l.editorial.nombre LIKE :nombre")
+                .setParameter("nombre", nombre).getResultList();
         desconectar();
         return libro;
     }
@@ -43,9 +44,10 @@ public class LibroDAO extends DAO<Libro> {
         super.eliminar(libro);
     }
 
-    public Libro buscarPorNombre(String nombre) {
+    public Libro buscarPorNombre(String titulo) {
         conectar();
-        Libro libro = em.find(Libro.class, nombre);
+        Libro libro = (Libro) em.createQuery("SELECT l FROM Libro l WHERE l.titulo LIKE :titulo")
+                .setParameter("titulo", titulo).getSingleResult();
         desconectar();
         return libro;
     }

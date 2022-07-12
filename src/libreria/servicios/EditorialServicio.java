@@ -61,6 +61,14 @@ public class EditorialServicio {
             return false;
         }
     }
+        public Editorial buscarPorId(Integer id){
+        try {
+            return DAO.buscarPorId(id);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+    }
     
     
 }
